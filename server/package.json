@@ -1,0 +1,25 @@
+{
+  "name": "private-chat-server",
+  "version": "1.0.0",
+  "description": "A Web based chat application that offers a private chat room for users",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lancefinke/Private_Chat_Website.git"
+  },
+  "author": "Lance Finke",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lancefinke/Private_Chat_Website/issues"
+  },
+  "homepage": "https://github.com/lancefinke/Private_Chat_Website#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
