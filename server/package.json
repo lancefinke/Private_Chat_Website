@@ -2,7 +2,7 @@
   "name": "private-chat-server",
   "version": "1.0.0",
   "description": "A Web based chat application that offers a private chat room for users",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/lancefinke/Private_Chat_Website#readme",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "express": "^4.21.2"
   },
   "devDependencies": {
