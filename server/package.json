@@ -4,7 +4,8 @@
   "description": "A Web based chat application that offers a private chat room for users",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/lancefinke/Private_Chat_Website#readme",
   "dependencies": {
+    "bcryptjs": "^3.0.0",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongoose": "^8.10.0"

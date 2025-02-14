@@ -23,4 +23,4 @@ const userSchema = new mongoose.Schema({
     }
 }, {timestamps:true});
 
-module.exports = module.model('users',userSchema)//collection made using users as name
+module.exports = mongoose.model('users',userSchema)//collection made using users as name
