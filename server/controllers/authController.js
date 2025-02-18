@@ -9,7 +9,7 @@ router.post('/signup',async (req,res)=>{
         const user = await User.findOne({email: req.body.email})
         //if user exists, send error message
         if(user){
-            return res.send({
+            return res.status(400).send({
                 message:'An account with this email already exists',
                 success:false
             })
@@ -22,7 +22,7 @@ router.post('/signup',async (req,res)=>{
         const newUser = new User(req.body);
         await newUser.save();
 
-        res.send({
+        res.status(201).send({
             message:"User Created",
             success:true
         })
@@ -38,14 +38,15 @@ router.post('/signup',async (req,res)=>{
 router.post('/login',async (req,res)=>{
     try{
         //check if user exist
-        const user = await User.findOne({email: req.body.email});
+        const user = await User.findOne({email: req.body.email}).select("+password");//add the select because password is hidden
         if(!user){
-            return res.send({
+            return res.status(400).send({
                 message:"User does not exit",
                 success:false
             });
         }
         //check if password is correct
+        console.log(user.password)
         const checkPassword = await bcrypt.compare(req.body.password, user.password);
         if(!checkPassword){
             return res.send({
@@ -56,14 +57,14 @@ router.post('/login',async (req,res)=>{
         //create JWT
         const token = jwt.sign({userId: user._id},process.env.SECRET_KEY, {expiresIn:"4h"});
 
-        res.send({
+        res.status(201).send({
             message:"user Logged in successfully",
             success:true,
             token:token
         })
     }catch(error){
         console.log(error)
-        res.send({
+        res.status(400).send({
             message:error.message,
             success:false
         })

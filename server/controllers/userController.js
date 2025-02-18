@@ -4,7 +4,7 @@ const authorize = require('./../middlewares/authMiddleware');
 
 router.get('/get-logged-user',authorize, async (req,res)=>{
     try{
-        const user = await User.findOne({_id: req.body.userId});
+        const user = await User.findOne({ _id: req.body.userId }).select('-password'); 
 
         res.send({
             message:"User fetched successfully",
